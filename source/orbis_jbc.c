@@ -290,7 +290,9 @@ int find_map_entry_start(int pid, const char* entry_name, uint64_t* start)
         return 0;
     }
 
-    for (size_t i = 0; i < proc_vm_map_args.num; i++)
+    LOG("%d vm_map found", proc_vm_map_args.num);
+    for (size_t i = 0; i < proc_vm_map_args.num; i++) {
+        LOG("Compare '%s' == '%s'", entry_name, proc_vm_map_args.maps[i].name);
         if (strncmp(proc_vm_map_args.maps[i].name, entry_name, 32) == 0)
         {
             LOG("Found '%s' Start addr %lX", entry_name, proc_vm_map_args.maps[i].start);
@@ -298,6 +300,7 @@ int find_map_entry_start(int pid, const char* entry_name, uint64_t* start)
             free(proc_vm_map_args.maps);
             return 1;
         }
+    }
 
     LOG("[!] '%s' Not Found", entry_name);
     free(proc_vm_map_args.maps);
