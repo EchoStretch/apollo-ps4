@@ -210,7 +210,7 @@ jobs:
 
     - name: Build Apollo App Package
       run: |
-        make
+        make DEBUGLOG=1
         mv IV0000-APOL00004_00-APOLLO0000000PS4.pkg apollo-ps4-build_${{ env.sha_name }}.pkg
 
     - name: Push package artifact
