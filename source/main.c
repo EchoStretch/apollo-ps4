@@ -1,4 +1,4 @@
-/* 
+/*
 	Apollo PS4 main.c
 */
 
@@ -221,10 +221,10 @@ static int LoadTextures_Menu(void)
 {
 	texture_mem = malloc(256 * 32 * 4);
 	menu_textures = (png_texture *)calloc(TOTAL_MENU_TEXTURES, sizeof(png_texture));
-	
+
 	if(!texture_mem || !menu_textures)
 		return 0; // fail!
-	
+
 	ResetFont();
 	free_mem = (u32 *) AddFontFromBitmapArray((u8 *) data_font_Adonais, (u8 *) texture_mem, 0x20, 0x7e, 32, 31, 1, BIT7_FIRST_PIXEL);
 	free_mem = (u32 *) AddFontFromBitmapArray((u8 *) console_font_10x20, (u8 *) free_mem, 0, 0xFF, 10, 20, 1, BIT7_FIRST_PIXEL);
@@ -235,7 +235,7 @@ static int LoadTextures_Menu(void)
 
 	free_mem = (u32*) init_ttf_table((u8*) free_mem);
 	set_ttf_window(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, WIN_SKIP_LF);
-	
+
 	//Init Main Menu textures
 	load_menu_texture(bgimg, jpg);
 	load_menu_texture(cheat, png);
@@ -495,7 +495,8 @@ s32 main(s32 argc, const char* argv[])
 	uint32_t startFrameTicks = 0;
 	uint32_t deltaFrameTicks = 0;
 
-	dbglogger_init();
+	// dbglogger_init();
+	dbglogger_init_str("tty::");
 #endif
 
 	// Initialize SDL functions
@@ -548,7 +549,7 @@ s32 main(s32 argc, const char* argv[])
 
 	mkdirs(APOLLO_DATA_PATH);
 	mkdirs(APOLLO_LOCAL_CACHE);
-	
+
 	// Load freetype
 	if (sceSysmoduleLoadModule(ORBIS_SYSMODULE_FREETYPE_OL) < 0)
 	{
@@ -573,7 +574,7 @@ s32 main(s32 argc, const char* argv[])
 
 	// register exit callback
 	atexit(terminate);
-	
+
 	// Load texture
 	if (!LoadTextures_Menu())
 	{
@@ -618,7 +619,7 @@ s32 main(s32 argc, const char* argv[])
 	drawSplashLogo(-1);
 #endif
 	SDL_DestroyTexture(menu_textures[buk_scr_png_index].texture);
-	
+
 	//Set options
 	update_callback(!apollo_config.update);
 
