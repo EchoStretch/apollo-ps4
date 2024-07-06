@@ -278,7 +278,7 @@ const orbis_patch_t shellcore_patches_1001[] = {
     {0, NULL, 0}
 };
 
-const orbis_patch_t shellcore_patches_1050[] = {
+const orbis_patch_t shellcore_patches_1050_1071[] = {
     {0x0E149B9, "\x00", 1},                        // 'sce_sdmemory' patch 1
     {0x0E149F8, "\x00", 1},                        // 'sce_sdmemory1' patch
     {0x0E14A06, "\x00", 1},                        // 'sce_sdmemory2' patch
