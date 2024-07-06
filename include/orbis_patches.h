@@ -144,6 +144,15 @@ const orbis_patch_t scesavedata_patches_900[] = {
     {0, NULL, 0},
 };
 
+const orbis_patch_t scesavedata_patches_1050_1071[] = {
+    {0x00355E8, "\x00", 1},        // 'sce_' patch
+//  {0x0034679, "\x00", 1},        // patch commented out as idk WTF it does
+    {0x0033E49, "\x00", 1},
+    {0x0035AA6, "\x00", 1},
+    {0x0000FB8, "\x1F", 1}, // sb
+    {0, NULL, 0},
+};
+
 /* 11.00 WIP patches by LM and SocraticBliss */
 const orbis_patch_t scesavedata_patches_1100[] = {
     {0x00355E8, "\x00", 1},        // 'sce_' patch
