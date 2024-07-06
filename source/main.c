@@ -496,7 +496,7 @@ s32 main(s32 argc, const char* argv[])
 	uint32_t deltaFrameTicks = 0;
 
 	// dbglogger_init();
-	dbglogger_init_str("tty::");
+	dbglogger_init_str("tcp:192.168.1.23:18194");
 #endif
 
 	// Initialize SDL functions
