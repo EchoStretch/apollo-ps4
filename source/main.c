@@ -1,7 +1,6 @@
 /*
 	Apollo PS4 main.c
 */
-
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
