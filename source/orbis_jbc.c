@@ -204,7 +204,12 @@ static int check_syscalls(void)
         LOG("ps4debug is loaded!");
         return 1;
     }
-
+    else if (orbis_syscall(197, NULL, &tmp) == 0)
+    {
+        LOG("OG Hen is loaded!");
+	goldhen2 = 90;
+        return 1;
+    }
     return 0;
 }
 
